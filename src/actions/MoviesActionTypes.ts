@@ -3,6 +3,10 @@ export const MOVIES_SUCCESS = "MOVIES_SUCCESS";
 export const MOVIES_FAILURE = "MOVIES_FAILURE";
 
 
+export type MoviesType = {
+  Search: Movie[]
+}
+
 export type Movie = {
    Title : string,
    Year : string
@@ -14,9 +18,7 @@ export interface MoviesLoading{
 }
 export interface MoviesSuccess{
     type : typeof MOVIES_SUCCESS,
-    payload: {
-        Search: Movie[]
-    }
+    payload: MoviesType
 }
 export interface MoviesFailure{
     type : typeof MOVIES_FAILURE
