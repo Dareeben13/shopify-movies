@@ -23,7 +23,7 @@ const NominatedMovies = () => {
               nominatedMovie && (
                   <ul>
                       {
-                          nominatedMovie.filter((item , idx) => idx < 5).map((movie, idx) => (
+                          nominatedMovie.map((movie, idx) => (
                               <li key={idx} style={{ marginBottom: 10}}>
                                   {movie.Title} ({movie.Year})
                                    <button className="remove"
