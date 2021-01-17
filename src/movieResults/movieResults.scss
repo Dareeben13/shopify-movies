@@ -1,0 +1,28 @@
+.movie-results{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.274);
+    height: 300px;
+    padding: 20px 30px;
+    background-color: white;
+    overflow: auto;
+    border-radius: 20px;
+
+    .hhp{
+        font-weight: 700;
+    }
+
+    .nominate{
+        margin-left: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+         transform: translateZ(0);
+         transition: transform 0.25s ease-out;
+
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+}

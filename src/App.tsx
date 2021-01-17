@@ -1,43 +1,48 @@
 import React, {useState} from 'react';
 
-import {useSelector, useDispatch} from 'react-redux'
-import {RootStore} from './store'
+import { useDispatch} from 'react-redux'
 
 import {getMovies} from './actions/MoviesAction'
 
-import './App.css';
+
+import SearchBar from './component/searchBar/search'
+import MovieResults from './movieResults/movieResult'
+import NominatedMovies from './nominatedMovie/nominatedMovie'
+
+import './App.scss';
 
 
 function App(){
+
   const dispatch = useDispatch()
-  const movies = useSelector((state : RootStore) => state.movies)
+
 
   const [text, setText] = useState("")
 
   const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)
-  const handleSubmit = () => dispatch(getMovies(text))
-
-  console.log((movies.movies?.Search))
-
+  const handleSubmit = () => {
+    if(text){
+      dispatch(getMovies(text))
+    }
+  } 
+  const checkEnter = (event : any) => {
+    if (event.key === "Enter") handleSubmit();
+  };
 
   return (
     <div className="App">
-      <div>
-        <input type="search" placeholder="Serach for Shopify Movies" value={text} onChange={handleChange}/>
+      <div className="container">
+         <div className="the-shoppies">
+           The Shoppies
+          </div>
+        <SearchBar handleChange={handleChange} text={text} checkEnter={checkEnter}/>
 
-        <button  onClick={handleSubmit} >Click here</button>
-        <div>
-          {
-            movies.movies && (
-              <div>
-                {
-                  movies.movies.Search.filter((item , idx) => idx < 8).map((item , idx) => (
-                    <h2 key={idx}>{item.Title} ({item.Year})</h2>
-                  ))
-                }
-              </div>
-            )
-          }
+        <div className="results-container">
+           <MovieResults text={text}/>
+        </div>
+
+        <div className="results-container">
+           <NominatedMovies/>
         </div>
       </div>
     </div>
@@ -45,3 +50,4 @@ function App(){
 }
 
 export default App;
+
