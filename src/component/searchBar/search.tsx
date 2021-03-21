@@ -4,8 +4,8 @@ import './search.scss'
 
 interface SearchProps {
   handleChange: any;
-  text: string
-  checkEnter: any
+  text: string;
+  checkEnter(event : React.KeyboardEvent):void
 }
 
 const SearchBar = (props : SearchProps) => {

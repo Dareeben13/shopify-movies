@@ -25,7 +25,7 @@ function App(){
       dispatch(getMovies(text))
     }
   } 
-  const checkEnter = (event : any) => {
+  const checkEnter = (event : React.KeyboardEvent) => {
     if (event.key === "Enter") handleSubmit();
   };
 

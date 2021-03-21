@@ -1,10 +1,10 @@
 
-import {MoviesType, MoviesDispatchTypes, MOVIES_FAILURE , MOVIES_LOADING , MOVIES_SUCCESS, NOMINATE_MOVIE , REMOVE_MOVIE, DISABLE_BUTTON } from '../actions/MoviesActionTypes'
+import {MoviesType, MoviesDispatchTypes, MOVIES_FAILURE , MOVIES_LOADING , MOVIES_SUCCESS, NOMINATE_MOVIE , REMOVE_MOVIE, DISABLE_BUTTON, Movie } from '../actions/MoviesActionTypes'
 
 interface DefaultState{
    loading: boolean,
    movies?: MoviesType,
-   nominatedMovies?: any[],
+   nominatedMovies?: Movie[],
    disabledButton?: any[]
 }
 
