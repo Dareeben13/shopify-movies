@@ -3,7 +3,7 @@ version: 2.1
 workflows:
   test-deloy:
     jobs:
-      -test
+      - test
 
 jobs:
   test:
